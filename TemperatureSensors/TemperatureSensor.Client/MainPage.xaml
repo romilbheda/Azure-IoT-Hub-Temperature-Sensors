@@ -1,0 +1,81 @@
+﻿<common:BindablePage
+    x:Class="TemperatureSensor.Client.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TemperatureSensor.Client"
+    xmlns:common="using:TemperatureSensor.Client.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <SolidColorBrush x:Key="DisplayHeaderTextColor">Black</SolidColorBrush>
+        <SolidColorBrush x:Key="DisplayTextColor">Black</SolidColorBrush>
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Humidity -->
+        <TextBlock Grid.Column="0"
+                       Grid.Row="0"
+                       Text="Humidity"
+                       FontSize="50"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center"
+                       Foreground="{StaticResource DisplayHeaderTextColor}" />
+        <TextBlock Grid.Column="0"
+                       Grid.Row="1"
+                       Text="{x:Bind HumidityDisplay, Mode=OneWay}"
+                       FontSize="90"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                       Margin="10,10,10,10"
+                       Foreground="{StaticResource DisplayTextColor}" />
+
+        <!-- Temperature -->
+        <TextBlock Grid.Column="1"
+                       Grid.Row="0"
+                       Text="Temperature"
+                       FontSize="50"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center"
+                       Foreground="{StaticResource DisplayHeaderTextColor}" />
+        <TextBlock Grid.Column="1"
+                       Grid.Row="1"
+                       Text="{x:Bind TemperatureDisplay, Mode=OneWay}"
+                       FontSize="90"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                       Margin="10,10,10,10"
+                       Foreground="{StaticResource DisplayTextColor}" />
+
+        <!-- Last Updated -->
+        <TextBlock Grid.Column="0"
+                       Grid.Row="2"
+                       Text="Last Updated:"
+                       FontSize="35"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Foreground="{StaticResource DisplayHeaderTextColor}"
+                       Margin="0,0,20,0" />
+        <TextBlock Grid.Column="1"
+                       Grid.Row="2"
+                       Text="{x:Bind LastUpdatedDisplay, Mode=OneWay}"
+                       FontSize="35"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="20,0,0,0"
+                       Foreground="{StaticResource DisplayTextColor}" />
+    </Grid>
+</common:BindablePage>
